@@ -19,12 +19,6 @@ class menuItemLink extends menuItem
                 'title'        => 'URL',
                 'control_type' => waHtmlControl::INPUT,
             ),
-            'anchor' => array(
-                'value'        => '',
-                'title'        => _w('Text'),
-                'description'  => _w('This text will replace a link\'s name.'),
-                'control_type' => waHtmlControl::INPUT,
-            ),
             'target' => array(
                 'value'        => '_self',
                 'title'        => _w("Target"),
@@ -50,9 +44,6 @@ class menuItemLink extends menuItem
     public function toArray()
     {
         $data = parent::toArray();
-        if(!empty($data['anchor'])) {
-            $data['name'] = $data['anchor'];
-        }
         return $data;
     }
 }

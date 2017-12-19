@@ -1,9 +1,14 @@
 <div class="block">
     <ul class="menu-v with-icons">
+        <li class="bottom-padded">
+            <a href="#/info/">
+                <i class="icon16 info"></i> [`Info`]
+            </a>
+        </li>
         {foreach $menus as $menu}
         <li data-menu-id="{$menu.id|escape}">
-            <a href="#/menu/{$menu.id}/" class="bold">
-                <i class="icon16 {$menu.type|escape}" data-menu-icon></i> <span data-menu-name>{$menu.name}</span>
+            <a href="#/menu/{$menu.id|escape}/" class="bold">
+                <i class="icon16 {$menu.type|escape}" data-menu-icon></i> <span data-menu-name>{$menu.name|escape}</span>
             </a>
         </li>
         {/foreach}

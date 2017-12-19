@@ -184,7 +184,18 @@ class menuItem implements ArrayAccess
 
         $data = array_intersect_key($data, array_flip($this->_allowed_keys));
 
-        return $data;
+        $char_set = 'UTF-8';
+        $result = array();
+        foreach ($this->_allowed_keys as $allowed_key) {
+            if(isset($data[$allowed_key])) {
+                $result[$allowed_key] = is_string($data[$allowed_key]) ?
+                    htmlspecialchars($data[$allowed_key], ENT_QUOTES, $char_set) : $data[$allowed_key];
+            } else {
+                $result[$allowed_key] = '';
+            }
+        }
+
+        return $result;
     }
 
 

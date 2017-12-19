@@ -1,13 +1,20 @@
 {strip}
 <div class="block bordered-bottom">
-    <h1 data-menu-id="{$menu.id}">
-        <span data-menu-name>{$menu.name}</span>
-
-        <span class="menu-actions">
-            <i class="icon16 settings" data-menu-edit></i>
-            <i class="icon16 delete" data-menu-delete></i>
-        </span>
-    </h1>
+    <div class="menu-header">
+        <h1 class="menu-name" data-menu-id="{$menu.id|escape}">
+            <span data-menu-name>{$menu.name|escape}</span>
+        </h1>
+        <div class="menu-actions" data-menu-id="{$menu.id|escape}">
+            <a href="#/menu/{$menu.id}" class="inline-link" data-menu-edit>
+                <i class="icon16 settings"></i> <b><i>[`settings`]</i></b>
+            </a> <a href="#/menu/{$menu.id}" class="inline-link" data-menu-delete>
+                <i class="icon16 delete"></i> <b><i>[`delete`]</i></b>
+            </a>
+            <span>
+                <input readonly class="bold" value="{ldelim}$items = $wa->menu->get({$menu.id|escape}){rdelim}" id="menu-code">
+            </span> <a href="#/info/"><i class="icon16 info"></i></a>
+        </div>
+    </div>
 </div>
 <div>
     <div class="sidebar left300px">
@@ -38,6 +45,17 @@
 (function ($) {
 $(function () {
     $.menu_tree.init();
+
+    if(document['execCommand']) {
+        $('#menu-code').focus(function () {
+            this.select();
+            document.execCommand("Copy");
+
+            $('<em class="status-ok">[`Copied`]</em>').appendTo($(this).parent()).delay(3000).fadeOut(function () {
+                $(this).remove();
+            });
+        })
+    }
 })
 })(jQuery);
 </script>

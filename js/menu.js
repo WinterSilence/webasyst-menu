@@ -232,6 +232,11 @@
             }
         },
 
+        infoAction: function (params) {
+            this.load('?action=info', function () {
+            });
+        },
+
         setTitle: function (title) {
             var $h1 = $('#wa-app').find('.content h1:first');
             if ((typeof title === 'undefined' || !title.length) && $h1.length > 0) {
