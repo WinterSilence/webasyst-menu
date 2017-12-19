@@ -1,0 +1,83 @@
+{strip}
+{$id = ifempty($params.id)}
+<style type="text/css">
+#{$id} .tree-wrapper {
+    overflow-y:auto;
+    max-height: 300px;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #a9a9a9;
+}
+#{$id} .tree-wrapper ul{
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+#{$id} .tree-wrapper a{
+   display: block;
+    padding: 5px;
+}
+
+#{$id} .tree-wrapper li{
+   list-style: none;
+   padding-left: 25px;
+   background: url({$wa_url}wa-apps/menu/plugins/shop/img/tree-2.gif) 0 0 repeat-y;
+   background-size: 24px 24px;
+   position: relative;
+}
+#{$id} .tree-wrapper li:before{
+   content: '';
+   display: block;
+   width: 24px;
+   height: 24px;
+   top: 0;
+   left: 0;
+   background: url({$wa_url}wa-apps/menu/plugins/shop/img/tree-3.gif) 0 0 no-repeat;
+   background-size: 24px 24px;
+    position: absolute;
+}
+
+#{$id} .tree-wrapper ul>li:last-child{
+   background-image: url({$wa_url}wa-apps/menu/plugins/shop/img/tree-last.gif);
+   background-repeat: no-repeat;
+}
+#{$id} .tree-wrapper li.selected>a{
+   background: rgba(0,0,0,0.07);
+}
+#{$id} .tree-wrapper>ul{
+   padding-left: 0;
+}
+#{$id} .tree-wrapper>ul>li{
+   padding-left: 0;
+    background: none!important;
+}
+#{$id} .tree-wrapper>ul>li:before{
+   display: none;
+}
+</style>
+<div id="{ifempty($params.id)}">
+    {$category_id = ifempty($params.value)}
+    <input name="{$name|escape}" value="{$category_id|escape}" type="hidden">
+
+    {$categories = $wa->shop->categories(0, null, true)}
+    <div class="tree-wrapper">
+    {wa_print_tree tree=$categories elem='<a data-id=":id" href="#">:name</a>' selected=$category_id}
+    </div>
+</div>
+<script>
+(function ($) {
+$(function () {
+    var $block = $('#{$id}');
+    $block.find('a').click(function (e) {
+        e.preventDefault();
+        var id = $(this).data('id'),
+            name = $(this).text();
+
+        $block.find('input').val(id);
+        $block.closest('form').find('[name="item[name]"]').val(name);
+        $block.find('.selected').removeClass('selected');
+        $(this).parent().addClass('selected')
+    })
+})
+})(jQuery);
+</script>
+{/strip}

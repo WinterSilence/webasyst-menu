@@ -1,0 +1,15 @@
+.m-sidebar {
+    margin-top: 18px;
+}
+#menu-tree { padding-left:40px; overflow-x:auto; }
+#menu-tree a.selected { background: #ffc; }
+
+#menu-tree .dr a .count .add { display: none !important; }
+#menu-tree .dr a:hover .count .add { display: block !important; }
+#menu-tree ul.menu-v li a.gray { color: #aaa !important; }
+
+.menu-actions { margin: 5px 0 0 25px; display: inline-block }
+.menu-actions i.icon16 { cursor: pointer; vertical-align: baseline }
+
+.status-error { color: red }
+.status-ok { color: green }
