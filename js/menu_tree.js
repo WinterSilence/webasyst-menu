@@ -132,7 +132,7 @@
                 var data = {
                     id: options.id,
                     type: options.type,
-                    parent_id: options.parent_id || 0
+                    parent_id: options.parent_id || $tree.data('menu_id')
                 };
                 if (options.before_id) {
                     data.before_id = options.before_id;
