@@ -66,7 +66,7 @@ class menuItemActions extends waJsonActions
         $this->response = array(
 
             'id' => $item['id'],
-            'icon' => $item->getIcon(),
+            'icon' => $item->getBackendIcon(),
             'parent_id' => $item['parent_id'],
             'name' => $item['name'],
             'status' => $item['status'],

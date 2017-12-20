@@ -39,7 +39,7 @@
         {/if}
 
         <a href="#/menu/{$menu.id}/{$item.id}" class="m-item-list{if !$item.status} gray{/if}">{strip}
-            <i class="icon16 {$item.icon|escape}"></i>
+            <i class="icon16 {$item.backend_icon|escape}"></i>
             <span class="name">{$item.name|escape}</span>
 
             <span class="count"><i class="icon10 add m-new-list"></i></span>

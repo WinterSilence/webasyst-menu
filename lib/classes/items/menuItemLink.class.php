@@ -36,7 +36,7 @@ class menuItemLink extends menuItem
     /**
      * @return string
      */
-    public function getIcon()
+    public function getBackendIcon()
     {
         return 'link';
     }

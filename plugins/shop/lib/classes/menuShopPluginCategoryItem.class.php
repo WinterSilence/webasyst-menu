@@ -6,7 +6,7 @@ class menuShopPluginCategoryItem extends menuItem
     /**
      * @return string
      */
-    public function getIcon()
+    public function getBackendIcon()
     {
         if(empty($this->params['include_subcategories'])) {
             return 'folder';

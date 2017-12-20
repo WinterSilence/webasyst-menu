@@ -51,7 +51,9 @@ class menuItem implements ArrayAccess
 
     public function offsetGet($offset)
     {
-        $method = 'get'.ucfirst($offset);
+        $parts = explode('_', $offset);
+        $parts = array_map('ucfirst', $parts);
+        $method = 'get'.implode('', $parts);
         if(method_exists($this, $method)) {
             return $this->$method();
         }
@@ -76,7 +78,7 @@ class menuItem implements ArrayAccess
         }
     }
 
-    public function getIcon()
+    public function getBackendIcon()
     {
         return 'folder';
     }
@@ -119,7 +121,18 @@ class menuItem implements ArrayAccess
         );
 
         $controls = array();
-        foreach ($this->getAvailableParams() as $name => $row) {
+
+
+        $item_params = $this->getAvailableParams();
+        $plugin_params = wa('menu')->event('item_params', $this->data);
+
+        foreach ($plugin_params as $plugin => $plugin_controls) {
+            if(!empty($plugin_controls) && is_array($plugin_controls)) {
+                $item_params = array_merge($item_params, $plugin_controls);
+            }
+        }
+
+        foreach ($item_params as $name => $row) {
             if (!is_array($row)) {
                 continue;
             }
@@ -160,7 +173,7 @@ class menuItem implements ArrayAccess
      *
      * @return int
      */
-    public function getChildren_count()
+    public function getChildrenCount()
     {
         return count($this->children);
     }
