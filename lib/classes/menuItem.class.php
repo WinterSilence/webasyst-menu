@@ -195,11 +195,12 @@ class menuItem implements ArrayAccess
             }
         }
 
-        $data = array_intersect_key($data, array_flip($this->_allowed_keys));
+        $allowed_keys = $this->getAllowedKeys();
+        $data = array_intersect_key($data, array_flip($allowed_keys));
 
         $char_set = 'UTF-8';
         $result = array();
-        foreach ($this->_allowed_keys as $allowed_key) {
+        foreach ($allowed_keys as $allowed_key) {
             if(isset($data[$allowed_key])) {
                 $result[$allowed_key] = is_string($data[$allowed_key]) ?
                     htmlspecialchars($data[$allowed_key], ENT_QUOTES, $char_set) : $data[$allowed_key];
@@ -233,4 +234,23 @@ class menuItem implements ArrayAccess
             $mip->set($this->data['id'], $this->params);
         }
     }
+
+    protected function getAllowedKeys()
+    {
+        static $plugin_keys;
+        if($plugin_keys === null) {
+            $plugin_keys = array();
+            if($plugins = wa('menu')->event('item_params_allowed')) {
+                foreach ($plugins as $plugin => $keys) {
+                    if(!empty($keys) && is_array($keys)) {
+                        $plugin_keys = array_merge($plugin_keys, $keys);
+                    }
+                }
+            }
+            $plugin_keys = array_unique($plugin_keys);
+        }
+
+        return array_merge($this->_allowed_keys, $plugin_keys);
+    }
+
 }
