@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: menu/plugins/shop\n"
+"POT-Creation-Date: 2017-12-21 18:43+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: menu/plugins/shop\n"
+"Language-Team: menu/plugins/shop\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoriesSubtreeItem.class.php:10
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoryItem.class.php:23
+msgid "Category"
+msgstr "Категория"
+
+msgid "Shop"
+msgstr "Магазин"
+
+msgid "Additional menu item types"
+msgstr "Дополнительные типы меню"
+
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoriesSubtreeItem.class.php:16
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoryItem.class.php:29
+msgid "Include subcategories"
+msgstr "Вывод подкатегорий"
+
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoriesSubtreeItem.class.php:20
+msgid "All children"
+msgstr "Все дочерние категории"
+
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoriesSubtreeItem.class.php:21
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoryItem.class.php:34
+msgid "1 level depth (direct children only)"
+msgstr "1 уровень вложенности (только прямые дочерние)"
+
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoriesSubtreeItem.class.php:22
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoryItem.class.php:35
+msgid "2 level depth"
+msgstr "2 уровень вложенности"
+
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoriesSubtreeItem.class.php:23
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoryItem.class.php:36
+msgid "3 level depth"
+msgstr "3 уровень вложенности"
+
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoryItem.class.php:33
+msgid "Don't include"
+msgstr "Не выводить"
+
+#: /wa-apps/menu/plugins/shop/lib/classes/menuShopPluginCategoryItem.class.php:121
+msgid "App \"Shop\" required."
+msgstr "Необходимо приложение &laquo;Магазин&raquo;"
+
+#: /wa-apps/menu/plugins/shop/lib/menuShopPlugin.class.php:12
+msgid "Link to a category"
+msgstr "Ссылка на категорию"
+
+#: /wa-apps/menu/plugins/shop/lib/menuShopPlugin.class.php:16
+msgid "Categories subtree"
+msgstr "Геренерация дерева категорий"
+
+#: /wa-apps/menu/plugins/shop/lib/menuShopPlugin.class.php:20
+msgid "Link to a product"
+msgstr "Ссылка на товар"
+
+#: /wa-apps/menu/plugins/shop/lib/menuShopPlugin.class.php:24
+msgid "Link to a shop page"
+msgstr "Ссылка на страницу магазина"

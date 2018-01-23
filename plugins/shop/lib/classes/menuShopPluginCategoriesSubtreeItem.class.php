@@ -3,8 +3,10 @@
 
 class menuShopPluginCategoriesSubtreeItem extends menuItem
 {
-    protected function getAvailableParams() {
-        return array(
+    protected function getAvailableParams()
+    {
+        wa()->pushActivePlugin('shop', 'menu');
+        $data = array(
             'category_id' => array(
                 'value'        => '',
                 'title'        => _wp('Category'),
@@ -24,6 +26,10 @@ class menuShopPluginCategoriesSubtreeItem extends menuItem
                 )
             )
         );
+
+        waSystem::popActivePlugin();
+
+        return $data;
     }
 
     public function save($data = null, $params = null)
@@ -71,6 +77,7 @@ class menuShopPluginCategoriesSubtreeItem extends menuItem
 
                 $category_to_item[$category['id']] = $item['id'];
             }
+            $this->params['include_subcategories'] = 0; // disable autofill
         }
 
         $this->data['type'] = 'shop_plugin_category';

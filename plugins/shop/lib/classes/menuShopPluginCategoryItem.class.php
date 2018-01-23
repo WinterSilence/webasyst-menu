@@ -16,8 +16,11 @@ class menuShopPluginCategoryItem extends menuItem
     }
 
 
-    protected function getAvailableParams() {
-        return array(
+    protected function getAvailableParams()
+    {
+        wa()->pushActivePlugin('shop', 'menu');
+
+        $data = array(
             'category_id' => array(
                 'value'        => '',
                 'title'        => _wp('Category'),
@@ -37,6 +40,8 @@ class menuShopPluginCategoryItem extends menuItem
                 )
             )
         );
+        waSystem::popActivePlugin();
+        return $data;
     }
 
 

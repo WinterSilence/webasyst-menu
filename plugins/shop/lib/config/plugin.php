@@ -1,8 +1,9 @@
 <?php
 return array (
   'name' => 'Shop',
-  'img' => 'img/shop.gif',
-  'version' => '1.0.0',
+  'description' => 'Additional menu item types',
+  'img' => 'img/shop.png',
+  'version' => '1.0.1',
   'vendor' => '972539',
   'handlers' => 
   array (
