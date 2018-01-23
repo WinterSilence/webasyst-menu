@@ -1,6 +1,6 @@
 <?php
 return array (
-  'name' => 'Menu',
+  'name' => 'Extended menu',
   'icon' => array(
     96 => 'img/menu96x96.png',
     48 => 'img/menu48x48.png',
