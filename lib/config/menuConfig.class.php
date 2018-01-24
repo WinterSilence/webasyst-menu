@@ -15,7 +15,15 @@ class menuConfig extends waAppConfig
             ),
         );
 
+        /**
+         * This hook adds a new menu types.
+         *
+         * @event register_controls
+         * @param array $data Item params.
+         * @return array[string]array $plugin_params[%plugin_id%]['name'] control name $plugin_params[%plugin_id%]['class'] control class name
+         */
         $plugin_controls = wa('menu')->event('register_controls');
+
         foreach ($plugin_controls as $plugin => $controls) {
             self::$registered_controls = array_merge(self::$registered_controls, $controls);
         }

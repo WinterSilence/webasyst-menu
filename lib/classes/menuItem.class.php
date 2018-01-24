@@ -124,6 +124,14 @@ class menuItem implements ArrayAccess
 
 
         $item_params = $this->getAvailableParams();
+
+        /**
+         * This hook adds a new params to menu item settings.
+         *
+         * @event item_params
+         * @param array $data Item params.
+         * @return array[string]array $plugin_params[%plugin_id%] array with plugin controls
+         */
         $plugin_params = wa('menu')->event('item_params', $this->data);
 
         foreach ($plugin_params as $plugin => $plugin_controls) {
@@ -240,7 +248,17 @@ class menuItem implements ArrayAccess
         static $plugin_keys;
         if($plugin_keys === null) {
             $plugin_keys = array();
-            if($plugins = wa('menu')->event('item_params_allowed')) {
+
+
+            /**
+             * This hook adds a new allowed params to show at frontend.
+             *
+             * @event item_params_allowed
+             * @return array[string]array $plugins[%plugin_id%] array of allowed params keys
+             */
+            $plugins = wa('menu')->event('item_params_allowed');
+
+            if($plugins) {
                 foreach ($plugins as $plugin => $keys) {
                     if(!empty($keys) && is_array($keys)) {
                         $plugin_keys = array_merge($plugin_keys, $keys);

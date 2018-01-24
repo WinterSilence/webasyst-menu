@@ -26,6 +26,13 @@ class menuViewHelper extends waAppViewHelper
             }
         }
 
+        /**
+         * @event frontend_menu
+         * @param array $items Menu items array before caching.
+         * @return void
+         */
+        wa('menu')->event('frontend_menu', $items);
+
         if(($lifetime > 0) && $cache) {
             $cache->set($key, $items, $lifetime, $group);
         }
