@@ -14,7 +14,7 @@ class menuShopPlugin extends waPlugin
             );
             $registered_controls['shop_plugin_category_subtree'] = array(
                 'name' => _wp('Categories subtree'),
-                        'class' => 'menuShopPluginCategoriesSubtreeItem'
+                'class' => 'menuShopPluginCategoriesSubtreeItem',
             );
             /* Пока отключим.
             $registered_controls['shop_plugin_product'] = array(
